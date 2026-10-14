@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Socket.IO Live Chat</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header>
+    <h1>Socket.IO Live Chat</h1>
+    <p>Node.js + Express + Socket.IO</p>
+  </header>
+
+  <main>
+    <section class="card join-card" id="joinCard">
+      <h2>Join the chat</h2>
+      <p class="hint">Pick a display name. Open another tab to test live messages.</p>
+      <form id="joinForm">
+        <label for="nameInput">Display name</label>
+        <input id="nameInput" type="text" maxlength="24" placeholder="Your name" required autocomplete="off">
+        <button type="submit">Join</button>
+      </form>
+      <p id="joinError" class="error"></p>
+    </section>
+
+    <section class="chat-layout hidden" id="chatApp">
+      <aside class="card sidebar">
+        <h2>Online</h2>
+        <p id="socketStatus" class="status">Connecting...</p>
+        <ul id="userList"></ul>
+      </aside>
+
+      <section class="card chat-panel">
+        <h2>Chat</h2>
+        <div id="chatBox"></div>
+        <p id="typingStatus" class="typing"></p>
+        <form id="chatForm">
+          <input id="chatInput" type="text" maxlength="500" placeholder="Type a message" autocomplete="off" required>
+          <button type="submit">Send</button>
+        </form>
+      </section>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Adarsh Sharma</p>
+  </footer>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/script.js"></script>
+</body>
+</html>
